@@ -1,0 +1,43 @@
+ <html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>System Configuration</title>
+ </head>
+ <body>
+<div id="seite">
+	<div id="kopfbereich">
+		<h1>System Configuration</h1>
+	</div>
+  
+	<div id="inhalt">	
+		<div id="inhalt2">
+			<table class="table3" id="table3"> 
+				<tbody class="section">
+					<tr>
+						<th>Mobile Number:</th>
+						<th>			
+							<form action="insert.php" method="post">	
+								<INPUT TYPE="text" id="firstname" NAME="name"/> 									
+								<input name="insert" class="buttonClass" type="submit" value="+"/>
+								<input name="remove" class="buttonClass" type="submit" value="-"/>
+							</form>
+							
+						</th>
+					</tr>
+					<tr>
+						<th>Soll Value:</th>
+						<th><INPUT TYPE="text" NAME="number2" VALUE=""> <INPUT TYPE="button" NAME="button" Value="Set" onClick="updateDbEntry()" class="buttonClass"></th>
+					</tr>
+				<tr id="linespace"> </tr>
+				</tbody>
+			</table>
+		</div> 
+	</div> 
+
+	
+</div>
+<div id="fussbereich">
+	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
+</div>
+</body>
+</html>

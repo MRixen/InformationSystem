@@ -1,0 +1,245 @@
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	.table5 {
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		text-align:left;
+	}
+	.table5 td {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 100px;
+		text-align:center;
+		height: 50px;		
+		font-size: 125%;
+		color: black;
+	}
+	.table5 th{
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 100px;
+		height: 50px;
+		font-size: 150%;
+		color: black
+	}
+	.table4 {
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		text-align:left;
+	}
+	.table4 caption {
+		text-align:left;
+	}
+	.table4 td {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 500px;
+		height: 50px;		
+		font-size: 100%;
+		color: black;
+	}
+	.table4 th{
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 600px;
+		height: 50px;
+		font-size: 150%;
+		color: black
+	}
+
+	.table3 {
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		text-align:left;
+	}
+	.table3 caption {
+		text-align:left;
+	}
+	.table3 td {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 300px;
+		font-size: 125%;
+		color: black;
+	}
+	.table3 th{
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 300px;
+		font-size: 150%;
+		color: black
+	}
+	.table2 {
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		text-align:left;
+	}
+	.table2 caption {
+		text-align:left;
+	}
+	.table2 th {
+		border:1px solid #000000;
+		padding:5px;
+		width: 100px;
+		background:#F0F0F0;
+		font-size: 150%;
+		color: black
+	}
+	.table2 td {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		font-size: 125%;
+		color: black;
+	}
+	.table1 {
+		border:1px solid #000000;
+		border-collapse:collapse;
+		padding:5px;
+		text-align:left;
+	}
+	.table1 caption {
+		text-align:left;
+	}
+	.table1 td {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		width: 200px;
+		font-size: 125%;
+		color: black;
+	}
+	.table1 th {
+		border:1px solid #000000;
+		padding:5px;
+		background:#F0F0F0;
+		font-size: 150%;
+		color: black
+	}
+	.section tr{
+		height: 50px;
+	}
+	.buttonClass{
+		width: 40px;
+		padding: 0;
+	}
+	#linespace{
+		height: 5px;
+	}
+	h1 {
+		font-size: 250%;
+		color: white
+	}
+	p {
+		color: white
+	}
+	/* unvisited link */
+	a:link {
+		color: white;
+	}
+
+	/* visited link */
+	a:visited {
+		color: lightblue;
+	}
+
+	/* mouse over link */
+	a:hover {
+		color: white;
+	}
+
+	/* selected link */
+	a:active {
+		color: blue;
+	}
+	#seite {
+	  width:100%;
+	  margin: 0 auto;
+	}
+	#kopfbereich {
+	  height: 100px;
+	  text-align:center;
+	  padding:10px;
+	  background-color: #004D9F;
+	}
+
+	#inhalt {
+	  height: 1000px;
+	  background-color: #4873B8;
+	position: relative;
+border: 1px solid red;
+	}
+	
+	#inhalt2 {
+	  margin-left: 30px;
+	  margin-top: 30px;
+	  height: 900px;
+	position: absolute;
+	text-align: center;
+border: 1px solid red;
+	}
+	
+		#inhalt3 {
+	  margin-left: 30px;
+	  margin-top: 30px;
+	  width: 350px;
+	position: absolute;
+	  height: 300px;
+	text-align: center;
+border: 1px solid red;
+	}
+	
+	#inhalt4 {
+	  margin-left: 380px;
+	  margin-top: 30px;
+	position: absolute;
+	text-align: center;
+border: 1px solid red;
+	}	
+
+	#inhalt5{
+	  margin-left: 30px;
+	  margin-top: 330px;
+	  width: 350px;
+	position: absolute;
+	text-align: center;
+border: 1px solid red;
+	}	
+
+	#inhalt6 {
+	  margin-left: 380px;
+	  margin-top: 330px;
+	position: absolute;
+	text-align: center;
+border: 1px solid red;
+	}		
+
+	#steuerung {
+	  float: left;
+	  width:150px;
+	  height: 600px;
+	   background-color: #4873B8;
+	}
+
+	#fussbereich {
+	  height: 20px;
+	  text-align:center;
+	   background-color: #004D9F;
+	}
+	
+		#mobileNumberId{
+	  width: 5px;
+	}
+</style>
