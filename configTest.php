@@ -121,38 +121,68 @@
 			</tbody>
 		</table>	
 		</div>
+		        
 		<div id="inhalt5">
-		<table class="table4" id="table"> 
+			 <table class="table4" id="table"> 
 			<caption> </caption>
 			<tbody>
 				<tr>
-					<td>
-					<label for="id">ID:</label>
-					<INPUT TYPE="text" size="1" id="id" NAME="name"/>
-					<label for="id">Mobile Number:</label>
-					<INPUT TYPE="text" size="15" id="firstname" NAME="name"/>					
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		</div>
-		<div id="inhalt6">
-			 <table class="table5" id="table"> 
-			<caption> </caption>
-			<tbody>
-				<tr>
-					<td>
-					<form action="<?php 
+					<td>					
+					<form action="<?php 					
+									// Connect to db
 									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
 									if ($conn->connect_error) {
 										die("Connection failed: " . $conn->connect_error);
 									} 
-									if(isset($_POST['add'])){
-										$result = $conn->query("insert into mobile_number (id, number) values ('1','1')");
+									// Get data from db
+									$sql_mobile_number = "SELECT * FROM mobile_number";
+									$result_mobile_number = $conn->query($sql_mobile_number); 
+									$counter = 0;
+									if ($result_mobile_number->num_rows > 0) {
+										while($row = $result_mobile_number->fetch_assoc()) {
+											$ids[$counter] = $row["id"];
+											$counter = $counter+1;
+										}
 									}
 									$conn->close();
+										
+									if($_SERVER['REQUEST_METHOD'] == 'POST'){
+										$fname = htmlentities($_POST['fname']);
+										$lname = htmlentities($_POST['lname']);
+																		
+										$idIsValid = false;
+										
+										// Check valid range of the id (range must be 1-4)
+										if(($fname >= 1) && ($fname <= 4)){
+											$idIsValid = true;
+										}
+										// Check if id already exists
+										for ($x = 0; $x < 4; $x++) {
+											//if($ids[$x] == $fname){
+											//	$idIsValid = false;
+											//}
+											//else {
+												$idIsValid = true;
+											//}
+										}
+										
+										// Save data to db
+										if($idIsValid){
+											$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
+											if ($conn->connect_error) {
+												die("Connection failed: " . $conn->connect_error);
+											} 
+
+											if(isset($_POST['remove4'])){
+												$result = $conn->query("insert into mobile_number (id, number) values ('$fname','$lname')");
+											}
+											$conn->close();
+											}
+									}
 									?>" method="post">
-						<input name="add" class="buttonClass" type="submit" value="+"/>
+						ID: <input size="1" type="text" name="fname" /> 
+						Mobile Number: <input size="15" type="text" name="lname" />
+						<input name="remove4" class="buttonClass" type="submit" value="+"/>
 					</form>
 					</td>
 				</tr>
@@ -189,13 +219,34 @@
 				var jArrayId= <?php echo json_encode($dbDataId); ?>;
 				var jArrayNumber= <?php echo json_encode($dbDataNumber); ?>;
 				var fLen = jArrayId.length;
+				
 				if(fLen > 4) fLen = 4; 
+				
+				for (i = 0; i < 4; i++) {
+					document.getElementById(cellElementsID[i]).innerHTML = i+1;
+				}
 				for (i = 0; i < fLen; i++) {
-					document.getElementById(cellElementsID[jArrayId[i]-1]).innerHTML = jArrayNumber[i];
-					document.getElementById(cellElementsNumber[jArrayId[i]-1]).innerHTML = jArrayId[i];
+					document.getElementById(cellElementsNumber[jArrayId[i]-1]).innerHTML = jArrayNumber[i];
 				}
 			</script>
-
+		
+ <script type="text/javascript">
+          function sum1()
+          {
+            //var num1 = document.myform.name1.value;
+            //var num2 = document.myform.name2.value;
+			//if((num1 == "") || (num2 == "")){
+			//	num1 = "-1";
+			//	num2 = "-1";
+			//}
+			alert("Sum1");
+          }
+		  function sum2()
+          {
+			// Get data from input fields
+			document.getElementById("inputField2").onchange();
+          }
+        </script>
 <div id="fussbereich">
 	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
 </div>
