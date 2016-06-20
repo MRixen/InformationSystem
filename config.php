@@ -128,58 +128,7 @@
 			<tbody>
 				<tr>
 					<td>					
-					<form action="<?php 					
-									// Connect to db
-									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
-									if ($conn->connect_error) {
-										die("Connection failed: " . $conn->connect_error);
-									} 
-									// Get data from db
-									$sql_mobile_number = "SELECT * FROM mobile_number";
-									$result_mobile_number = $conn->query($sql_mobile_number); 
-									$counter = 0;
-									if ($result_mobile_number->num_rows > 0) {
-										while($row = $result_mobile_number->fetch_assoc()) {
-											$ids[$counter] = $row["id"];
-											$counter = $counter+1;
-										}
-									}
-									$conn->close();
-										
-									if($_SERVER['REQUEST_METHOD'] == 'POST'){
-										$fname = htmlentities($_POST['fname']);
-										$lname = htmlentities($_POST['lname']);
-																		
-										$idIsValid = false;
-										
-										// Check valid range of the id (range must be 1-4)
-										if(($fname >= 1) && ($fname <= 4)){
-											$idIsValid = true;
-										}
-										// Check if id already exists
-										for ($x = 0; $x < 4; $x++) {
-											//if($ids[$x] == $fname){
-											//	$idIsValid = false;
-											//}
-											//else {
-												$idIsValid = true;
-											//}
-										}
-										
-										// Save data to db
-										if($idIsValid){
-											$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
-											if ($conn->connect_error) {
-												die("Connection failed: " . $conn->connect_error);
-											} 
-
-											if(isset($_POST['remove4'])){
-												$result = $conn->query("insert into mobile_number (id, number) values ('$fname','$lname')");
-											}
-											$conn->close();
-											}
-									}
-									?>" method="post">
+					<form action="insert.php" method="post">
 						ID: <input size="1" type="text" name="fname" /> 
 						Mobile Number: <input size="15" type="text" name="lname" />
 						<input name="remove4" class="buttonClass" type="submit" value="+"/>
