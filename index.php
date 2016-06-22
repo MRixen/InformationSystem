@@ -15,8 +15,8 @@
  <META HTTP-EQUIV="refresh" CONTENT="2"/>
  <body>
 <div id="seite">
-	<div id="kopfbereich">
-		<h1>System Information</h1>
+	<div id="kopfbereich">	
+		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;"><h1>System Information</h1>
 	</div>
   
 	<div id="inhalt">
@@ -29,6 +29,15 @@
 					die("Connection failed: " . $conn->connect_error);
 				} 
 				// Get data from database production_actual
+				$sql_production_actual = "SELECT * FROM production_actual";
+				$result_production_actual = $conn->query($sql_production_actual); 
+				$row_production_actual = $result_production_actual->fetch_assoc();
+				
+				// Calculate trend for current article and get database content again
+				$trendTemp = (3600/(float)$row_production_actual["Cycletime"]);
+				$trend = sprintf("%.3f", $trendTemp);
+				$result = $conn->query("UPDATE production_actual SET Trend = '$trend' WHERE 1");
+				
 				$sql_production_actual = "SELECT * FROM production_actual";
 				$result_production_actual = $conn->query($sql_production_actual); 
 				$row_production_actual = $result_production_actual->fetch_assoc();
@@ -156,11 +165,13 @@
 			</tbody>
 		</table>
 		</div> 
+		
 	</div> 	
-</div>
 <div id="fussbereich">
-	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
+	<p>Copyright rbc Fördertechnik GmbH <a href="http://www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
+</div>	
 </div>
+
 
 
 
@@ -170,8 +181,15 @@
 		// Populate data for production 
 		document.getElementById("Soll").innerHTML = jArray[0];
 		document.getElementById("Ist").innerHTML = jArray[1];
-		document.getElementById("Trend").innerHTML = jArray[2];
+		var elementTrend = document.getElementById("Trend");
+		elementTrend.innerHTML = jArray[2];
+		// Set text color to red if trend is smaller than soll
+		if(parseInt(jArray[2]) < parseInt(jArray[0])){
+			elementTrend.style.backgroundColor='red';
+		}		
 		document.getElementById("Cycletime").innerHTML = jArray[3];
+		
+
 		
 		// Populate data for production 
 		document.getElementById("MachineName").innerHTML = jArray[4];

@@ -117,7 +117,7 @@
 		border:1px solid #000000;
 		padding:5px;
 		background:#F0F0F0;
-		width: 200px;
+		width: 280px;
 		font-size: 125%;
 		color: black;
 	}
@@ -176,10 +176,9 @@
 	}
 
 	#inhalt {
-	  height: 1000px;
+	  height: 600px;
 	  background-color: #4873B8;
 	position: relative;
-border: 1px solid red;
 	}
 	
 	#inhalt2 {
@@ -188,7 +187,6 @@ border: 1px solid red;
 	  height: 900px;
 	position: absolute;
 	text-align: center;
-border: 1px solid red;
 	}
 	
 		#inhalt3 {
@@ -198,7 +196,6 @@ border: 1px solid red;
 	position: absolute;
 	  height: 300px;
 	text-align: center;
-border: 1px solid red;
 	}
 	
 	#inhalt4 {
@@ -207,7 +204,6 @@ border: 1px solid red;
 	  width: 110px;
 	position: absolute;
 	text-align: center;
-border: 1px solid red;
 	}	
 
 	#inhalt5{
@@ -216,7 +212,6 @@ border: 1px solid red;
 	  width: 460px;
 	position: absolute;
 	text-align: center;
-border: 1px solid red;
 	}	
 
 	#inhalt6 {
@@ -224,19 +219,21 @@ border: 1px solid red;
 	  margin-top: 330px;
 	position: absolute;
 	text-align: center;
-border: 1px solid red;
 	}		
 
 	#steuerung {
 	  float: left;
 	  width:150px;
-	  height: 600px;
+	  height: 400px;
 	   background-color: #4873B8;
 	}
+	
 
 	#fussbereich {
 	  height: 20px;
 	  text-align:center;
+	  margin-top: -20px;
+	position: relative;
 	   background-color: #004D9F;
 	}
 	

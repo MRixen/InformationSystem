@@ -30,21 +30,20 @@
 										$idIsValid = false;
 										
 										// Check valid range of the id (range must be 1-4)
-										 if(($fname >= 1) && ($fname <= 4)){
-											$idIsValid = true;
-										 }
-										// Check if id already exists
-										if($ids[0] != -1){
-											for ($x = 0; $x < sizeof($ids); $x++) {
-												if($ids[$x] == $fname){
-													$idIsValid = false;
-												}
-												else {
-													$idIsValid = true;
+										 if( (($fname >= 1) && ($fname <= 4)) && ($lname > 0) ){									 
+											// Check if id already exists
+											if($ids[0] != -1){
+												for ($x = 0; $x < sizeof($ids); $x++) {
+													if($ids[$x] == $fname){
+														$idIsValid = false;
+													}
+													else {
+														$idIsValid = true;
+													}
 												}
 											}
+											else $idIsValid = false;
 										}
-										else $idIsValid = true;
 										
 										// Save data to db
 										if($idIsValid){
@@ -141,7 +140,7 @@
 			<tbody>
 				<tr>
 					<td>					
-						<a href="configTest.php" target="_parent">CLICK TO RETURN</a>					
+						<a href="config.php" target="_parent">CLICK TO RETURN</a>					
 					</td>
 				</tr>
 			</tbody>

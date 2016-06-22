@@ -12,7 +12,7 @@
  <body>
 <div id="seite">
 	<div id="kopfbereich">
-		<h1>System Configuration</h1>
+		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;"><h1>System Configuration</h1>
 	</div>
   
 	<div id="inhalt">	
@@ -128,7 +128,7 @@
 			<tbody>
 				<tr>
 					<td>					
-					<form action="insert.php" method="post">
+					<form action="insertMobileNumber.php" method="post">
 						ID: <input size="1" type="text" name="fname" /> 
 						Mobile Number: <input size="15" type="text" name="lname" />
 						<input name="remove4" class="buttonClass" type="submit" value="+"/>
@@ -137,8 +137,27 @@
 				</tr>
 			</tbody>
 		</table>
+				<br>
+			 <table class="table4" id="table"> 
+			<caption> </caption>
+			<tbody>
+				<tr>
+					<td>					
+					<form action="insertSollValue.php" method="post">
+						Soll value: <input size="5" type="text" name="zname" /> 
+						<input name="buttonZname" class="buttonClass" type="submit" value="Set"/>
+					</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		</div>
-</div>		
+		
+</div>	
+<div id="fussbereich">
+	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
+</div>
+</div>
 			<?php				
 				// Connect to db
 				$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
@@ -196,8 +215,5 @@
 			document.getElementById("inputField2").onchange();
           }
         </script>
-<div id="fussbereich">
-	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
-</div>
 </body>
 </html>
