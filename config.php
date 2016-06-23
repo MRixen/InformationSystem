@@ -6,57 +6,41 @@
  ?>
  <html>
  <head>
+  <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="pure-release-0.6.0/pure-min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>System Configuration</title>
  </head>
  <body>
 <div id="seite">
-	<div id="kopfbereich">
-		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;"><h1>System Configuration</h1>
+	<div id="container">	
+	<div id="kopfbereich">	
+		<h1>System Configuration</h1>
+	</div>	
+	<div id="kopfbereich2">	
+		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;">
+	</div>
+
 	</div>
   
 	<div id="inhalt">	
-		<div id="inhalt3">
-			 <table class="table4" id="table"> 
+	<div id="inhalt2">	
+
+	<table id="table"> 
 			<caption> </caption>
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Mobile Number</th>
+					<th class="spezial"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td id="number1">&nbsp;</td>
 					<td id="number11">&nbsp;</td>
-				</tr>
-				<tr>
-					<td id="number2">&nbsp;</td>
-					<td id="number22">&nbsp;</td>
-				</tr>
-				<tr>
-					<td id="number3">&nbsp;</td>
-					<td id="number33">&nbsp;</td>
-				</tr>
-				<tr>
-					<td id="number4">&nbsp;</td>
-					<td id="number44">&nbsp;</td>
-				</tr>
-			</tbody>
-		</table>
-		</div>
-		<div id="inhalt4">
-			 <table class="table5" id="table"> 
-			<caption> </caption>
-			<thead>
-				<tr>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>
-					<form action="<?php 
+					<td class="spezial">
+					<form class="myForm" action="<?php 
 									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
 									if ($conn->connect_error) {
 										die("Connection failed: " . $conn->connect_error);
@@ -66,13 +50,15 @@
 									}
 									$conn->close();
 									?>" method="post">
-						<input name="remove1" class="buttonClass" type="submit" value="-"/>
+						<button name="remove1" type="submit" class="pure-button"><i class="fa fa-minus-square-o"></i></button>
 					</form>
 					</td>
 				</tr>
 				<tr>
-					<td>
-					<form action="<?php 
+					<td id="number2">&nbsp;</td>
+					<td id="number22">&nbsp;</td>
+					<td class="spezial">
+					<form class="myForm" action="<?php 
 									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
 									if ($conn->connect_error) {
 										die("Connection failed: " . $conn->connect_error);
@@ -82,13 +68,15 @@
 									}
 									$conn->close();
 									?>" method="post">
-						<input name="remove2" class="buttonClass" type="submit" value="-"/>
+						<button name="remove2" type="submit" class="pure-button"><i class="fa fa-minus-square-o"></i></button>
 					</form>
 					</td>
 				</tr>
 				<tr>
-					<td>
-					<form action="<?php 
+					<td id="number3">&nbsp;</td>
+					<td id="number33">&nbsp;</td>
+					<td class="spezial">
+					<form class="myForm" action="<?php 
 									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
 									if ($conn->connect_error) {
 										die("Connection failed: " . $conn->connect_error);
@@ -98,13 +86,15 @@
 									}
 									$conn->close();
 									?>" method="post">
-						<input name="remove3" class="buttonClass" type="submit" value="-"/>
+						<button name="remove3" type="submit" class="pure-button"><i class="fa fa-minus-square-o"></i></button>
 					</form>
 					</td>
 				</tr>
 				<tr>
-					<td>
-					<form action="<?php 
+					<td id="number4">&nbsp;</td>
+					<td id="number44">&nbsp;</td>
+					<td class="spezial">
+					<form class="myForm" action="<?php 
 									$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
 									if ($conn->connect_error) {
 										die("Connection failed: " . $conn->connect_error);
@@ -114,40 +104,24 @@
 									}
 									$conn->close();
 									?>" method="post">
-						<input name="remove4" class="buttonClass" type="submit" value="-"/>
+						<button name="remove4" type="submit" class="pure-button"><i class="fa fa-minus-square-o"></i></button>
 					</form>
 					</td>
 				</tr>
-			</tbody>
-		</table>	
-		</div>
-		        
-		<div id="inhalt5">
-			 <table class="table4" id="table"> 
-			<caption> </caption>
+			<tr id="linespace"> </tr>
+			</tbody>			
 			<tbody>
-				<tr>
-					<td>					
-					<form action="insertMobileNumber.php" method="post">
-						ID: <input size="1" type="text" name="fname" /> 
-						Mobile Number: <input size="15" type="text" name="lname" />
-						<input name="remove4" class="buttonClass" type="submit" value="+"/>
-					</form>
-					</td>
+			<tr>
+				<?php
+					echo '<td><form class="myForm" style="margin-top:0px;" action="insertMobileNumber.php" method="post"><input size="15" type="text" name="fname"/></td> <td><input size="15" type="text" name="lname"/></td> <td class="spezial"> <button name="remove4" type="submit" class="pure-button"><i class="fa fa-plus-square-o"></i></button></form></td>';
+				?>
 				</tr>
 			</tbody>
-		</table>
-				<br>
-			 <table class="table4" id="table"> 
-			<caption> </caption>
 			<tbody>
-				<tr>
-					<td>					
-					<form action="insertSollValue.php" method="post">
-						Soll value: <input size="5" type="text" name="zname" /> 
-						<input name="buttonZname" class="buttonClass" type="submit" value="Set"/>
-					</form>
-					</td>
+			<tr>
+				<?php
+					echo '<td><form class="myForm" style="margin-top:0px;" action="insertSollValue.php" method="post"> <input size="15" type="text" name="zname"/></td> <td></td> <td class="spezial"> <button name="buttonZname" type="submit" class="pure-button"><i class="fa fa-check-square-o"></i></button></form></td>';
+				?>
 				</tr>
 			</tbody>
 		</table>
@@ -158,6 +132,10 @@
 	<p>Copyright rbc Fördertechnik GmbH <a href="www.rbc-robotics.de" target="_blank">www.rbc-robotics.de</a><p>
 </div>
 </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>
+
 			<?php				
 				// Connect to db
 				$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
@@ -197,23 +175,6 @@
 					document.getElementById(cellElementsNumber[jArrayId[i]-1]).innerHTML = jArrayNumber[i];
 				}
 			</script>
-		
- <script type="text/javascript">
-          function sum1()
-          {
-            //var num1 = document.myform.name1.value;
-            //var num2 = document.myform.name2.value;
-			//if((num1 == "") || (num2 == "")){
-			//	num1 = "-1";
-			//	num2 = "-1";
-			//}
-			alert("Sum1");
-          }
-		  function sum2()
-          {
-			// Get data from input fields
-			document.getElementById("inputField2").onchange();
-          }
-        </script>
+
 </body>
 </html>

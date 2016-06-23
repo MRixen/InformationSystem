@@ -15,13 +15,20 @@
  <META HTTP-EQUIV="refresh" CONTENT="2"/>
  <body>
 <div id="seite">
+	<div id="container">	
 	<div id="kopfbereich">	
-		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;"><h1>System Information</h1>
+		<h1>System Information</h1>
+	</div>	
+	<div id="kopfbereich2">	
+		<img src="rbclogo.png" alt="" style="float:left;width:200px;height:105px;">
 	</div>
+
+	</div>
+
   
 	<div id="inhalt">
 		<div id="inhalt2">
-		 <table class="table2" id="table" onload="updateTables(
+		 <table id="table" onload="updateTables(
 			<?php	
 				// Connect to database
 				$conn = new mysqli($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["dbname"]);
@@ -46,7 +53,13 @@
 				$sql_machine_data = "SELECT * FROM machine_data";
 				$result_machine_data = $conn->query($sql_machine_data); 
 				$row_machine_data = $result_machine_data->fetch_assoc();
-				$conn->close();
+
+				
+				// Get data from database article_data
+				$sql_article_data = "SELECT * FROM article_data";
+				$result_article_data = $conn->query($sql_article_data); 
+				$row_article_data = $result_article_data->fetch_assoc();
+				$conn->close();				
 				
 				$dbData = array(
 				  0 => $row_production_actual["Soll"], 
@@ -67,6 +80,9 @@
 				  15 => $row_machine_data["RobSpeed"], 
 				  16 => $row_machine_data["ActOv"], 
 				  17 => $row_machine_data["DyteTime"], 
+				  18 => $row_article_data["programName"], 
+				  19 => $row_article_data["programId"], 
+				  20 => $row_article_data["programNumber"]
 					);
 			?>)"> 
 			<caption> </caption>
@@ -85,11 +101,28 @@
 					<td id="Trend">&nbsp;</td>
 					<td id="Cycletime">&nbsp;</td>
 				</tr>
+			<tr id="linespace"> </tr>
+			</tbody>
+						<thead>
+				<tr>
+					<th>Article name</th>
+					<th>Article ID</th>
+					<th>Program number</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="ProgramName">&nbsp;</td>
+					<td id="ProgramId">&nbsp;</td>
+					<td id="ProgramNumber">&nbsp;</td>
+					<td id="na">&nbsp;</td>
+				</tr>
 			</tbody>
 		</table>
 		<br>
 		<br>
-		<table class="table1" id="table2"> 
+		<table id="table2"> 
 			<caption> </caption>
 			<!-- SECTION 1 -->
 			<thead>
@@ -172,7 +205,8 @@
 </div>	
 </div>
 
-
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>
 
 
 <script type="text/javascript">
@@ -204,8 +238,18 @@
 		document.getElementById("IpAddress").innerHTML = jArray[13];
 		document.getElementById("HmiLanguage").innerHTML = jArray[14];
 		document.getElementById("RobSpeed").innerHTML = jArray[15];
-		document.getElementById("ActOv").innerHTML = jArray[16];
+		var elementActOv = document.getElementById("ActOv");
+		elementActOv.innerHTML = jArray[16];
+		// Set text color to red if override is smaller than 100
+		if(parseInt(jArray[16]) < 100){
+			elementActOv.style.backgroundColor='red';
+		}	
 		document.getElementById("DyteTime").innerHTML = jArray[17];
+		
+		// Populate data for article 
+		document.getElementById("ProgramName").innerHTML = jArray[18];
+		document.getElementById("ProgramId").innerHTML = jArray[19];
+		document.getElementById("ProgramNumber").innerHTML = jArray[20];
 	}
     window.onload = function () {		
 		window.setInterval(function(){ 

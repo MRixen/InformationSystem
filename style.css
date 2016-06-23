@@ -1,133 +1,55 @@
 <style>
+
 	table {
-		border-collapse: collapse;
+	  font-family: 'Arial';
+	  margin: 0px auto;
+	  border-collapse: collapse;
+	  border: 1px solid #eee;
+	  border-bottom: 2px solid #00cccc;
+	  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
 	}
-	.table5 {
-		border:1px solid #000000;
-		border-collapse:collapse;
-		padding:5px;
-		text-align:left;
+	table tr:hover {
+	  background: #f4f4f4;
 	}
-	.table5 td {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 100px;
-		text-align:center;
-		height: 50px;		
-		font-size: 125%;
-		color: black;
+	table tr:hover td {
+	  color: #555;
 	}
-	.table5 th{
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 100px;
-		height: 50px;
-		font-size: 150%;
-		color: black
+	table th, table td {
+	  color: black;
+	  border: 1px solid #eee;
+	  padding: 12px 35px;
+	  width: 250px;
+	  border-collapse: collapse;
 	}
-	.table4 {
-		border:1px solid #000000;
-		border-collapse:collapse;
-		padding:5px;
-		text-align:left;
+	table th {
+	  background: #4873B8;
+	  color: #fff;
+	  text-transform: uppercase;
+	  font-size: 18px;
 	}
-	.table4 caption {
-		text-align:left;
+	table td {
+	  font-size: 18px;
+	  font-weight: bold;
 	}
-	.table4 td {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 500px;
-		height: 50px;		
-		font-size: 100%;
-		color: black;
+	table th.last {
+	  border-right: none;
 	}
-	.table4 th{
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 600px;
-		height: 50px;
-		font-size: 150%;
-		color: black
+	table th.spezial {
+	  width: 55px;
+	  height: 70px;
+	}
+	table td.spezial {
+	  width: 55px;
+	  height: 70px;
+	}
+	table td.spezial2 {
+	  background: white;
+	  width: 700px;
+	}
+	.myForm{ 
+	margin: 0 auto; 
 	}
 
-	.table3 {
-		border:1px solid #000000;
-		border-collapse:collapse;
-		padding:5px;
-		text-align:left;
-	}
-	.table3 caption {
-		text-align:left;
-	}
-	.table3 td {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 300px;
-		font-size: 125%;
-		color: black;
-	}
-	.table3 th{
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 300px;
-		font-size: 150%;
-		color: black
-	}
-	.table2 {
-		border:1px solid #000000;
-		border-collapse:collapse;
-		padding:5px;
-		text-align:left;
-	}
-	.table2 caption {
-		text-align:left;
-	}
-	.table2 th {
-		border:1px solid #000000;
-		padding:5px;
-		width: 100px;
-		background:#F0F0F0;
-		font-size: 150%;
-		color: black
-	}
-	.table2 td {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		font-size: 125%;
-		color: black;
-	}
-	.table1 {
-		border:1px solid #000000;
-		border-collapse:collapse;
-		padding:5px;
-		text-align:left;
-	}
-	.table1 caption {
-		text-align:left;
-	}
-	.table1 td {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		width: 280px;
-		font-size: 125%;
-		color: black;
-	}
-	.table1 th {
-		border:1px solid #000000;
-		padding:5px;
-		background:#F0F0F0;
-		font-size: 150%;
-		color: black
-	}
 	.section tr{
 		height: 50px;
 	}
@@ -167,60 +89,40 @@
 	#seite {
 	  width:100%;
 	  margin: 0 auto;
+	  border: 1px solid white;
 	}
-	#kopfbereich {
+	#contatiner {
+	  width: 400px;
+	  height: 100px;
+	  position: relative;
+	}
+	#kopfbereich ,
+	#kopfbereich2{
 	  height: 100px;
 	  text-align:center;
+	  position: absolute;
 	  padding:10px;
-	  background-color: #004D9F;
+	  background-color: #4873B8;
+	}
+		#kopfbereich2{
+  z-index: 10;
+	}
+			#kopfbereich{
+            right: 10;
+            left: 10;
 	}
 
 	#inhalt {
-	  height: 600px;
-	  background-color: #4873B8;
-	position: relative;
+	  margin-top: 150px;
+	  background-color: white;
 	}
 	
 	#inhalt2 {
-	  margin-left: 30px;
-	  margin-top: 30px;
-	  height: 900px;
-	position: absolute;
-	text-align: center;
+      display: table;
+      margin: 0 auto;
 	}
 	
-		#inhalt3 {
-	  margin-left: 30px;
-	  margin-top: 30px;
-	  width: 350px;
-	position: absolute;
-	  height: 300px;
-	text-align: center;
-	}
 	
-	#inhalt4 {
-	  margin-left: 380px;
-	  margin-top: 30px;
-	  width: 110px;
-	position: absolute;
-	text-align: center;
-	}	
-
-	#inhalt5{
-	  margin-left: 30px;
-	  margin-top: 330px;
-	  width: 460px;
-	position: absolute;
-	text-align: center;
-	}	
-
-	#inhalt6 {
-	  margin-left: 380px;
-	  margin-top: 330px;
-	position: absolute;
-	text-align: center;
-	}		
-
 	#steuerung {
 	  float: left;
 	  width:150px;
@@ -232,9 +134,8 @@
 	#fussbereich {
 	  height: 20px;
 	  text-align:center;
-	  margin-top: -20px;
-	position: relative;
-	   background-color: #004D9F;
+	  margin-top: 30px;
+	   background-color: #4873B8;
 	}
 	
 		#mobileNumberId{
